@@ -81,15 +81,19 @@ make_tres.Tree(file_query)
 
 #Call to the function to find domains
 
-Find_domains.Parsear_prosite()
+Find_domains.Parsear_prosite(folder_result)
 Find_domains.find_domains(file_query,folder_result, file_pros='prosite_parser.tsv')
 
 #Move the file to the correct folder
 
+shutil.move('prosite_parser.tsv', folder_result)
+
 for record in SeqIO.parse(file_query, "fasta"):
-    shutil.copy(record.id + "_result.tsv", folder_result)
-    shutil.copy(record.id + "_filter.tsv", folder_result)
-    shutil.copy(record.id + "_muscle.faa", folder_result)
-    shutil.copy(record.id + "_alignment.faa", folder_result)
-    shutil.copy(record.id + "_tree.nw", folder_result)
-    shutil.copy(record.id+"_domains.txt", folder_result)
+    shutil.move(record.id + "_result.tsv", folder_result)
+    shutil.move(record.id + "_filter.tsv", folder_result)
+    shutil.move(record.id + "_muscle.faa", folder_result)
+    shutil.move(record.id + "_alignment.faa", folder_result)
+    shutil.move(record.id + "_tree.nw", folder_result)
+    shutil.move(record.id+"_domains.txt", folder_result)
+
+os.remove('file_parseado')

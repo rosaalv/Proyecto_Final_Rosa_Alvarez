@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
+import shutil
 import re
 
 from Bio.ExPASy import Prosite,Prodoc
 from Bio import SeqIO
 
-def Parsear_prosite():
+def Parsear_prosite(folder_result):
 
     """Function to parse the data base selecting the elements
     necessary for the create file"""
@@ -25,6 +26,7 @@ def Parsear_prosite():
 
         records.close()
         result_file.close()
+
 
 def Convert_regex (file_pros='prosite_parser.tsv'):
 
@@ -77,6 +79,7 @@ def find_domains (file_query, folder_result, file_pros="prosite_parser.tsv"):
                                     finds.write(res)
 
             file_prosite.close()
+
 
     print("The domains that were found are save in the folder: %s" %(folder_result))
 
