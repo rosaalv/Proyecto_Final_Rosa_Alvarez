@@ -5,5 +5,6 @@ Instalation:
 It is need to hace muscle. 
 
 Usage:
-run: main.py <folder with genbank file>  <query file>  <value coverage>  <value identity>
+Run: main.py <folder with genbank file>  <query file>  <value coverage>  <value identity>
+  
 Help: run only main.py
